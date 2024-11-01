@@ -199,7 +199,7 @@ export class Pregel<
     OutputType = PregelOutputType
   >
   extends Runnable<
-    InputType,
+    InputType | null,
     OutputType,
     PregelOptions<Nn, Cc, ConfigurableFieldType>
   >
@@ -903,7 +903,7 @@ export class Pregel<
    * @param options.debug Whether to print debug information during execution.
    */
   override async stream(
-    input: InputType,
+    input: InputType | null,
     options?: Partial<PregelOptions<Nn, Cc, ConfigurableFieldType>>
   ): Promise<IterableReadableStream<OutputType>> {
     return super.stream(input, options);
@@ -1223,7 +1223,7 @@ export class Pregel<
    * @param options.debug Whether to print debug information during execution.
    */
   override async invoke(
-    input: InputType,
+    input: InputType | null,
     options?: Partial<PregelOptions<Nn, Cc, ConfigurableFieldType>>
   ): Promise<OutputType> {
     const streamMode = options?.streamMode ?? "values";
