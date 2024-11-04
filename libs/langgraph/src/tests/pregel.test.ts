@@ -3541,6 +3541,7 @@ export function runPregelTests(
           hello: "there",
           bye: "world",
           messages: ["hello"],
+          // @ts-expect-error This should emit a TS error
           now: 345, // ignored because not in input schema
         })
       ).toEqual({
@@ -3553,6 +3554,7 @@ export function runPregelTests(
             hello: "there",
             bye: "world",
             messages: ["hello"],
+            // @ts-expect-error This should emit a TS error
             now: 345, // ignored because not in input schema
           })
         )
@@ -3712,6 +3714,7 @@ export function runPregelTests(
       };
       const res = await app.invoke(
         {
+          // @ts-expect-error Messages is not in schema
           messages: ["initial input"],
         },
         config

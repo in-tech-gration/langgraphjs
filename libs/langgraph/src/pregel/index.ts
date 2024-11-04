@@ -905,7 +905,7 @@ export class Pregel<
   override async stream(
     input: InputType | null,
     options?: Partial<PregelOptions<Nn, Cc, ConfigurableFieldType>>
-  ): Promise<IterableReadableStream<OutputType>> {
+  ): Promise<IterableReadableStream<PregelOutputType>> {
     return super.stream(input, options);
   }
 
